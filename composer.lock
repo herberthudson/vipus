@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3f6d3448736dd22476a044804dee5ad0",
-    "content-hash": "fbb74ad17407e208e182b8eaf66f0b82",
+    "hash": "04d076978f7cd20e35a2df1991ba5fb9",
+    "content-hash": "a61be3dd7cbe0912626347a7d3896ba2",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -383,6 +383,56 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2016-04-28 03:01:34"
+        },
+        {
+            "name": "driftyco/ionicons",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/driftyco/ionicons.git",
+                "reference": "ecb4b806831005c25b97ed9089fbb1d7dcc0879c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/driftyco/ionicons/zipball/ecb4b806831005c25b97ed9089fbb1d7dcc0879c",
+                "reference": "ecb4b806831005c25b97ed9089fbb1d7dcc0879c",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Bradley",
+                    "email": "adam@drifty.com",
+                    "homepage": "https://twitter.com/adamdbradley",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Max Lynch",
+                    "email": "max@drifty.com",
+                    "homepage": "https://twitter.com/maxlynch",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Ben Sperry",
+                    "email": "ben@drifty.com",
+                    "homepage": "https://twitter.com/benjsperry",
+                    "role": "Designer"
+                }
+            ],
+            "description": "The premium icon font for Ionic Framework.",
+            "homepage": "http://ionicons.com/",
+            "keywords": [
+                "fonts",
+                "icon font",
+                "icons",
+                "ionic",
+                "web font"
+            ],
+            "time": "2015-01-03 20:02:30"
         },
         {
             "name": "fortawesome/font-awesome",
