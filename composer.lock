@@ -4,9 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "280ce7d84c4d0482366ad9cbb7534a9f",
-    "content-hash": "8ff4b464cc5fcf2fbd4731d1f8d4cd00",
+    "hash": "629a31b280dd1e9728e2999fbdabf90f",
+    "content-hash": "15a1d4089f5ed581b33439841dd2f137",
     "packages": [
+        {
+            "name": "almasaeed2010/adminlte",
+            "version": "v2.3.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/almasaeed2010/AdminLTE.git",
+                "reference": "ced14b133daed8c163863a497c43dcf69eea4340"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/ced14b133daed8c163863a497c43dcf69eea4340",
+                "reference": "ced14b133daed8c163863a497c43dcf69eea4340",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abdullah Almsaeed",
+                    "email": "abdullah@almsaeedstudio.com"
+                }
+            ],
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 3",
+            "homepage": "http://almsaeedstudio.com/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "time": "2016-11-04 14:42:55"
+        },
         {
             "name": "aura/installer-default",
             "version": "1.0.0",
