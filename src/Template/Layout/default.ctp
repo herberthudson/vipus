@@ -173,7 +173,7 @@
     <?= $this->Html->script('plugins/fastclick/fastclick.min') ?>
 
     <!-- AdminLTE App -->
-    <?= $this->Html->script('app.min') ?>
+    <?= $this->Html->script('app') ?>
 
     <? // loading scripts for page ?>
     <?= $this->fetch('script') ?>
