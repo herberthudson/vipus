@@ -25,11 +25,24 @@
     <?= $this->Html->meta('icon') ?>
     <?php // showing title - http://book.cakephp.org/3.0/en/views.html#extending-views ?>
     <title><?= $this->fetch('title') ?></title>
-    <?php // adding fallback to load all css and js by local and CDN - https://github.com/dolox/fallback/tree/v2 ?>
-    <script src="<?= $this->Url->script('fallback.min') ?>" type="text/javascript"></script>
+    <?php // TODO: check if css link is on if not show local file ?>
+    <!-- Bootstrap 3.3.6 -->
+    <?= $this->Html->css('bootstrap.min') ?>
+    <!-- Font Awesome -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+    <?= $this->Html->css('font-awesome.min')  ?>
+    <?php // TODO: add ionicons only when its used ?>
+    <!-- Ionicons -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
+    <!-- Theme style -->
+    <?= $this->Html->css('AdminLTE.min') ?>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <?= $this->html->css('skins/_all-skins.min') ?>
+
     <?php // showing css for page ?>
     <?= $this->fetch('css') ?>
-    <?php // FIXME: load css before HTML5 Shim ?>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -147,104 +160,21 @@
     <!-- ./wrapper -->
 
 
-    <?php // fallback config for Css ?>
-    <script type="text/javascript">
-        fallback.config({
-            "libs": {
-                "css$bootstrap": {
-                    "exports": ".col-xs-12",
-                    "urls": [
-                        "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
-                        // FIXME: fix load all files instead one
-                        // "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css",
-                        // "//ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css",
-                        // "//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css",
-                        // "<?= $this->Url->css('bootstrap.min') ?>"
-                    ]
-                },
-                'css$fontawesome': {
-                    "exports": ".fa",
-                    "urls": [
-                            "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css",
-                            // FIXME: fix load all files instead one
-                            // "//cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css",
-                            // "<?= $this->Url->css('font-awesome.min') ?>"
-                    ]
-                },
-                'css$ionicons': {
-                    "exports": ".ion",
-                    "urls": [
-                            "//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css",
-                            // FIXME: fix load all files instead one
-                            // "//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css",
-                            // "//cdn.jsdelivr.net/ionicons/2.0.1/css/ionicons.min.css",
-                            // "<?= $this->Url->css('ionicons.min') ?>"
-                    ]
-                },
-                'css$adminlte': {
-                    "exports": ".wrapper",
-                    "urls": [
-                            "<?= $this->Url->css('AdminLTE.min') ?>"
-                    ]
-                },
-                'css$skins': {
-                    "exports": "",
-                    "urls": [
-                            "<?= $this->Url->css('skins/_all-skins.min') ?>"
-                    ]
-                },
-                "jQuery": {
-                    "exports": 'jQuery',
-                    "urls": [
-                        // FIXME: fix load all files instead one
-                        // "//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js",
-                        // "//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js",
-                        "<?= $this->Url->script('plugins/jQuery/jquery-2.2.3.min') ?>"
-                    ]
-                },
-                "bootstrap": {
-                    "exports": 'jQuery.fn.modal',
-                    "deps": "jQuery",
-                    "urls": [
-                        // FIXME: fix load all files instead one
-                        // "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",
-                        "<?= $this->Url->script('bootstrap.min') ?>"
-                    ]
-                },
-                "slimscroll": {
-                    "exports": 'jQuery.slimScroll',
-                    "deps": "jQuery",
-                    "urls": [
-                        // FIXME: fix load all files instead one
-                        // "//cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js",
-                        "<?= $this->Url->script('plugins/slimScroll/jquery.slimscroll.min') ?>"
-                    ]
-                },
-                "fastclick": {
-                    "exports": 'FastClick',
-                    "urls": [
-                        "<?= $this->Url->script('plugins/fastclick/fastclick.js') ?>"
-                    ]
-                },
-                "adminlte": {
-                    "exports": 'AdminLTE',
-                    "deps": "bootstrap",
-                    "urls": [
-                        "<?= $this->Url->script('app') ?>"
-                    ]
-                }
-            }
-        });
+    <?php // TODO: add script to check if exist or load from CDN ?>
+    <!-- jQuery 2.2.3 -->
+    <?= $this->Html->script('plugins/jQuery/jquery-2.2.3.min') ?>
 
-        fallback.require(function (css$bootstrap, css$fontawesome, css$ionicons, css$adminlte, css$skins) {
+    <?php // TODO: add script to check if exist or load from CDN ?>
+    <!-- Bootstrap 3.3.6 -->
+    <?= $this->Html->script('bootstrap.min') ?>
 
-        });
+    <?php // TODO: add script to check if exist or load from CDN ?>
+    <!-- FastClick -->
+    <?= $this->Html->script('plugins/fastclick/fastclick.min') ?>
 
-        fallback.require(function (jQuery, bootstrap, slimscroll, fastclick, adminlte) {
+    <!-- AdminLTE App -->
+    <?= $this->Html->script('app.min') ?>
 
-        });
-
-    </script>
     <? // loading scripts for page ?>
     <?= $this->fetch('script') ?>
 </body>
