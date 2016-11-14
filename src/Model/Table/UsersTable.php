@@ -44,7 +44,7 @@ class UsersTable extends Table
         $this->hasMany('Orders', [
             'foreignKey' => 'user_id'
         ]);
-        $this->hasMany('Profiles', [
+        $this->hasOne('Profiles', [
             'foreignKey' => 'user_id'
         ]);
     }
@@ -63,24 +63,46 @@ class UsersTable extends Table
 
         $validator
             ->requirePresence('username', 'create')
-            ->notEmpty('username');
+            ->add('username', 'unique', [
+                'rule' => 'validateUnique',
+                'provider' => 'table',
+                'message' => __('This username is already in use, please insert another.')])
+            ->notEmpty('username', __('The <b>username</b> field can not be empty.'));
 
         $validator
             ->requirePresence('password', 'create')
-            ->notEmpty('password');
+            ->add('password', 'length', [
+                'rule' => [
+                    'lengthBetween', 8, 100
+                ],
+                'message' => __('The password field must be between 8 to 100 characters.')])
+            ->notEmpty('password', __('The <b>password</br> field can not be empty.'));
 
         $validator
-            ->email('email')
+            ->requirePresence('repassword', 'create')
+            ->add('repassword', 'no-misspelling', [
+                'rule' => ['compareWith', 'password'],
+                'message' => __('Passwors must be equals, please try again.')
+            ]);
+
+        $validator
+            ->email('email', 'valid', [
+                'rule' => 'email',
+                'message' => __('The email field must be a valid email')])
             ->requirePresence('email', 'create')
-            ->notEmpty('email');
+            ->notEmpty('email', __('The <b>email</b> field can not be empty'));
 
         $validator
             ->requirePresence('role', 'create')
-            ->notEmpty('role');
-
-        $validator
-            ->requirePresence('token_forgot', 'create')
-            ->notEmpty('token_forgot');
+            ->add('role', 'inList', [
+                'rule' => [
+                    'inList', [
+                        'admin',
+                        'client'
+                    ]
+                ]
+            ])
+            ->notEmpty('role', __('The <b>role</b> field can not be empty, please contact support.'));
 
         return $validator;
     }

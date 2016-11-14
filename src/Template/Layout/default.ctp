@@ -90,22 +90,23 @@
 
                                     <p>
                                         <?php // TODO: add profile name ?>
-                                        Alexander Pierce - Web Developer
-                                        <?php // TODO: add user created field formated ?>
-                                        <small>Member since Nov. 2012</small>
+                                        <?= $this->request->session()->read('Auth.User.username') ?>
+                                        <?php // TODO: format field created ?>
+                                        <small><?= __('Member since') ?> <?= $this->request->session()->read('Auth.User.created') ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
+                                            <?= $this->Html->link(__('Account'), ['controller' => 'users', 'action' => 'index']) ?>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
+                                            <?= $this->Html->link(__('Orders'), ['controller' => 'orders', 'action' => 'index']) ?>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
+                                            <?php // TODO: add support page ?>
+                                            <?= $this->Html->link(__('Support'), ['controller' => 'pages', 'action' => 'support']) ?>
                                         </div>
                                     </div>
                                     <!-- /.row -->
@@ -113,12 +114,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <?php // TODO: link for profile ?>
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <?= $this->Html->link(__('Profile'), ['controller' => 'profiles', 'action' => 'index'], ['class' => 'btn btn-default btn-flat']) ?>
                                     </div>
                                     <div class="pull-right">
-                                        <?php // TODO: link logout ?>
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <?= $this->Html->link(__('Sign out'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'btn btn-default btn-flat']) ?>
                                     </div>
                                 </li>
                             </ul>

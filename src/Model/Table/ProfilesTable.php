@@ -78,13 +78,13 @@ class ProfilesTable extends Table
             ->date('bith')
             ->allowEmpty('bith');
 
-        $validator
-            ->requirePresence('photo', 'create')
-            ->notEmpty('photo');
-
-        $validator
-            ->requirePresence('dir', 'create')
-            ->notEmpty('dir');
+        // $validator
+        //     ->requirePresence('photo', 'create')
+        //     ->notEmpty('photo');
+        //
+        // $validator
+        //     ->requirePresence('dir', 'create')
+        //     ->notEmpty('dir');
 
         return $validator;
     }
