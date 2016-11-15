@@ -23,7 +23,6 @@ module.exports = function (grunt) {
                     }
                 ],
                 file: "TODO.md",
-                githubBoxes: true,
                 colophon: true,
                 usePackage: true,
                 title: "VipUS TODO/FIXME"
