@@ -225,3 +225,5 @@ if (Configure::read('debug')) {
 Plugin::load('Migrations');
 
 Configure::load('templates_form', 'default');
+
+Plugin::load('Josegonzalez/Upload');
