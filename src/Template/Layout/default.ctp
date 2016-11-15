@@ -77,20 +77,16 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <?php // TODO: add profile photo ?>
-                                <img src="<?= $this->Url->image('avatar.png') ?>" class="user-image" alt="User Image">
-                                <?php // TODO: add profile name ?>
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <img src="<?= $this->Auth->user('photo') ?>" class="user-image" alt="User Image">
+                                <span class="hidden-xs"><?= $this->Auth->user('full_name') ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <?php // TODO: add profile photo ?>
-                                    <img src="<?= $this->Url->image('avatar.png') ?>" class="img-circle" alt="User Image">
+                                    <img src="<?= $this->Auth->user('photo') ?>" class="img-circle" alt="User Image">
 
                                     <p>
-                                        <?php // TODO: add profile name ?>
-                                        <?= $this->request->session()->read('Auth.User.username') ?>
+                                        <?= $this->Auth->user('username') ?>
                                         <?php // TODO: format field created ?>
                                         <small><?= __('Member since') ?> <?= $this->request->session()->read('Auth.User.created') ?></small>
                                     </p>

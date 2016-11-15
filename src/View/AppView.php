@@ -37,5 +37,6 @@ class AppView extends View
     {
         parent::initialize();
         $this->loadHelper('Menu');
+        $this->loadHelper('Auth');
     }
 }

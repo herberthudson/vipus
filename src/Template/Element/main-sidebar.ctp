@@ -18,12 +18,11 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <?php // TODO: add profile photo ?>
-                <img src="<?= $this->Url->image('avatar.png') ?>" class="img-circle" alt="User Image">
+                <img src="<?= $this->Auth->user('photo') ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <?php // TODO: add profile name ?>
-                <p>Alexander Pierce</p>
+                <p><?= $this->Auth->user('full_name') ?></p>
+                <?php // TODO: add status option ?>
                 <a href="#"><i class="fa fa-circle text-success"></i> <?= __('Online') ?></a>
             </div>
         </div>

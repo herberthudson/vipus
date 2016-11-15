@@ -38,9 +38,9 @@ class UsersController extends AppController
             // identifying user
             $user = $this->Auth->identify();
             if ($user) {
-                // TODO: add profile name and photo dir to auth session
+                $user['profile'] = $this->Users->Profiles->find()->select(['name', 'surname', 'photo', 'dir'])->first();
                 // TODO: add last login
-                // login user and adding on session
+                // logging user and adding on session
                 $this->Auth->setUser($user);
                 // redirecting user logged in
                 return $this->redirect($this->Auth->redirectUrl());
