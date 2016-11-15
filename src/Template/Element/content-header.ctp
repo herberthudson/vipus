@@ -16,10 +16,10 @@
     <?php echo $title = isset($title) ? $title : ''; ?>
     <small><?php echo $description = isset($description) ? $description : ''; ?></small>
   </h1>
-  <?php // FIXME: fix breadcrumb ?>
+  <?php // TODO: improve breadcrumb ?>
   <ol class="breadcrumb">
     <li><a href="<?= $this->Url->build('/') ?>"><i class="fa fa-dashboard"></i><?= __('Home') ?></a></li>
-    <li><?= $this->Html->link($this->request->param('Controller'), ['controller' => $this->request->param('Controller')]) ?></li>
-    <li class="active"><?= $this->request->param('Action') ?></li>
+    <li><?= $this->Html->link($this->request->param('controller'), ['controller' => $this->request->param('controller')]) ?></li>
+    <li class="active"><?= $this->request->param('action') ?></li>
   </ol>
 </section>

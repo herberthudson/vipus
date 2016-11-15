@@ -131,7 +131,10 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <?php // content header ?>
-            <?= $this->element('content-header'); ?>
+            <?= $this->element('content-header', [
+                'title' => $this->fetch('title'),
+                'description' => $this->fetch('description')
+            ]); ?>
             <?php // TODO: move to a better place ?>
             <?= $this->Flash->render() ?>
             <!-- Main content -->

@@ -38,7 +38,7 @@ class UsersController extends AppController
             // identifying user
             $user = $this->Auth->identify();
             if ($user) {
-                $user['profile'] = $this->Users->Profiles->find()->select(['name', 'surname', 'photo', 'dir'])->first();
+                $user['profile'] = $this->Users->Profiles->find()->select(['id', 'name', 'surname', 'photo', 'dir'])->first();
                 // TODO: add last login
                 // logging user and adding on session
                 $this->Auth->setUser($user);
@@ -67,10 +67,12 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $users = $this->paginate($this->Users);
+        $user = $this->Users->get($this->Auth->user('id'), [
+            'contain' => ['Profiles']
+        ]);
 
-        $this->set(compact('users'));
-        $this->set('_serialize', ['users']);
+        $this->set('user', $user);
+        $this->set('_serialize', ['user']);
     }
 
     /**
@@ -80,15 +82,16 @@ class UsersController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
-    {
-        $user = $this->Users->get($id, [
-            'contain' => ['Orders', 'Profiles']
-        ]);
-
-        $this->set('user', $user);
-        $this->set('_serialize', ['user']);
-    }
+    // public function view($id = null)
+    // {
+    //
+    //     $user = $this->Users->get($id, [
+    //         'contain' => ['Orders', 'Profiles']
+    //     ]);
+    //
+    //     $this->set('user', $user);
+    //     $this->set('_serialize', ['user']);
+    // }
 
     /**
      * Add method
@@ -164,7 +167,7 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'logout']);
     }
 
     // TODO: add reset password

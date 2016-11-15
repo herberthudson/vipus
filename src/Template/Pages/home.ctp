@@ -11,6 +11,10 @@
  * @license       MIT License
  */
 ?>
+<?php
+    $this->assign('title', __('Home'));
+    $this->assign('description', __('Welcome to VipUS'))
+?>
 <?php // TODO: create page home ?>
 <!-- Default box -->
 <div class="box">
