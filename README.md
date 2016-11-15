@@ -20,6 +20,11 @@ composer install
 Move and edit `config/app.default.php` to `config/app.php` and setup the 'Datasources' and any other
 configuration relevant for your application.
 
+## Contributing
+
+Fork the repository, make your changes and create a pull request.
+Feel free to look at TODO.md file and find something todo :blush:
+
 ## License
 
 This Application is under MIT License, see LICENSE file.

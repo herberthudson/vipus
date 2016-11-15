@@ -1,0 +1,32 @@
+{
+  "name": "vipus",
+  "version": "0.3.0",
+  "description": "Web Application for salling VIPs services",
+  "main": "n",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herberthudson/VipUS.git"
+  },
+  "keywords": [
+    "CakePHP",
+    "PHP",
+    "AdminLTE",
+    "Bootstrap"
+  ],
+  "author": "Herbert Hudson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/herberthudson/VipUS/issues"
+  },
+  "homepage": "https://github.com/herberthudson/VipUS#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-todo": "^0.5.0"
+  }
+}
