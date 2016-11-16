@@ -47,10 +47,12 @@ class ProfilesTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('Addresses', [
-            'foreignKey' => 'profile_id'
+            'foreignKey' => 'profile_id',
+            'dependent' => true
         ]);
         $this->hasMany('Phones', [
-            'foreignKey' => 'profile_id'
+            'foreignKey' => 'profile_id',
+            'dependent' => true
         ]);
     }
 

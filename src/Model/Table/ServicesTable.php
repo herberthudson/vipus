@@ -41,7 +41,8 @@ class ServicesTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->hasMany('Products', [
-            'foreignKey' => 'service_id'
+            'foreignKey' => 'service_id',
+            'dependent' => true
         ]);
     }
 

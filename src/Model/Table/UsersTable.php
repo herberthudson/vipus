@@ -42,10 +42,12 @@ class UsersTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->hasMany('Orders', [
-            'foreignKey' => 'user_id'
+            'foreignKey' => 'user_id',
+            'dependent' => true
         ]);
         $this->hasOne('Profiles', [
-            'foreignKey' => 'user_id'
+            'foreignKey' => 'user_id',
+            'dependent' => true
         ]);
     }
 

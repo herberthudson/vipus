@@ -49,12 +49,14 @@ class ProductsTable extends Table
         $this->belongsToMany('Images', [
             'foreignKey' => 'product_id',
             'targetForeignKey' => 'image_id',
-            'joinTable' => 'images_products'
+            'joinTable' => 'images_products',
+            'dependent' => true
         ]);
         $this->belongsToMany('Orders', [
             'foreignKey' => 'product_id',
             'targetForeignKey' => 'order_id',
-            'joinTable' => 'orders_products'
+            'joinTable' => 'orders_products',
+            'dependent' => true
         ]);
     }
 
