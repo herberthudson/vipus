@@ -1,7 +1,21 @@
 <?php
+/**
+ * VipUS: Admin for sale vips services
+ * Copyright (c) Herbert Hudson (https://github.com/herberthudson/VipUS)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Herbert Hudson (https://github.com/herberthudson/VipUS)
+ * @license       MIT License
+ */
+?>
+<?php
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * Profiles Controller
@@ -18,13 +32,7 @@ class ProfilesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Users']
-        ];
-        $profiles = $this->paginate($this->Profiles);
-
-        $this->set(compact('profiles'));
-        $this->set('_serialize', ['profiles']);
+        $this->setAction('view');
     }
 
     /**
@@ -36,6 +44,8 @@ class ProfilesController extends AppController
      */
     public function view($id = null)
     {
+        // TODO: improve this method to prevent user to see other profile
+        $id = $this->request->session()->read('Auth.User.profile.id');
         $profile = $this->Profiles->get($id, [
             'contain' => ['Users', 'Addresses', 'Phones']
         ]);
@@ -49,23 +59,23 @@ class ProfilesController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
-        $profile = $this->Profiles->newEntity();
-        if ($this->request->is('post')) {
-            $profile = $this->Profiles->patchEntity($profile, $this->request->data);
-            if ($this->Profiles->save($profile)) {
-                $this->Flash->success(__('The profile has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The profile could not be saved. Please, try again.'));
-            }
-        }
-        $users = $this->Profiles->Users->find('list', ['limit' => 200]);
-        $this->set(compact('profile', 'users'));
-        $this->set('_serialize', ['profile']);
-    }
+    // public function add()
+    // {
+    //     $profile = $this->Profiles->newEntity();
+    //     if ($this->request->is('post')) {
+    //         $profile = $this->Profiles->patchEntity($profile, $this->request->data);
+    //         if ($this->Profiles->save($profile)) {
+    //             $this->Flash->success(__('The profile has been saved.'));
+    //
+    //             return $this->redirect(['action' => 'index']);
+    //         } else {
+    //             $this->Flash->error(__('The profile could not be saved. Please, try again.'));
+    //         }
+    //     }
+    //     $users = $this->Profiles->Users->find('list', ['limit' => 200]);
+    //     $this->set(compact('profile', 'users'));
+    //     $this->set('_serialize', ['profile']);
+    // }
 
     /**
      * Edit method
@@ -76,14 +86,17 @@ class ProfilesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->set('form_templates', Configure::read('Templates'));
+        // TODO: improve this method to prevent user to edit other profile
+        $id = $this->request->session()->read('Auth.User.profile.id');
         $profile = $this->Profiles->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $profile = $this->Profiles->patchEntity($profile, $this->request->data);
             if ($this->Profiles->save($profile)) {
-                $this->Flash->success(__('The profile has been saved.'));
-
+                // TODO: change default image and flash message if user upload image
+                $this->Flash->success(__('The profile has been saved. If you change your photo, please sign out and sign in to see your changers'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The profile could not be saved. Please, try again.'));

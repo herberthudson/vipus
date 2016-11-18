@@ -47,7 +47,8 @@ class UsersTable extends Table
         ]);
         $this->hasOne('Profiles', [
             'foreignKey' => 'user_id',
-            'dependent' => true
+            'dependent' => true,
+            'cascadeCallbacks' => true,
         ]);
     }
 

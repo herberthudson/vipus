@@ -58,9 +58,10 @@ class AuthHelper extends Helper
                 return $this->request->session()->read('Auth.User.profile.name') . ' ' . $this->request->session()->read('Auth.User.profile.surname'); ;
                 break;
             case 'photo':
-                $photo = $this->request->session()->read('Auth.User.profile.dir') . $this->request->session()->read('Auth.User.profile.photo');
+                $dir = empty($this->request->session()->read('Auth.User.profile.dir')) ? 'default' : $this->request->session()->read('Auth.User.profile.dir');
+                $photo = '/files/profiles/photo/' . $dir . DS . $this->request->session()->read('Auth.User.profile.photo');
                 if ($photo) {
-                    return $this->Url->image($photo);
+                    return $photo;
                 }else {
                     return "";
                 }

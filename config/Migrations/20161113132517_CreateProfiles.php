@@ -28,7 +28,7 @@ class CreateProfiles extends AbstractMigration
             'limit' => 100,
             'null' => false,
         ]);
-        $table->addColumn('bith', 'date', [
+        $table->addColumn('birth', 'date', [
             'default' => null,
             'null' => true,
         ]);

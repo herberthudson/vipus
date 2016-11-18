@@ -60,15 +60,11 @@ class ProfilesTable extends Table
             'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
             'dir' => 'dir',   // The name of the field to store the folder
             'thumbnailSizes' => [ // Declare your thumbnails
-                'square' => [   // Define the prefix of your thumbnail
-                    'w' => 200, // Width
-                    'h' => 200, // Height
+                '160x160' => [   // Define the prefix of your thumbnail
+                    'w' => 160, // Width
+                    'h' => 160, // Height
                     'jpeg_quality'  => 100
-                ],
-                'portrait' => [     // Define a second thumbnail
-                    'w' => 100,
-                    'h' => 300
-                ],
+                ]
             ],
             'thumbnailMethod' => 'gd'   // Options are Imagick or Gd
         ]
@@ -99,13 +95,7 @@ class ProfilesTable extends Table
             ->date('bith')
             ->allowEmpty('bith');
 
-        // $validator
-        //     ->requirePresence('photo', 'create')
-        //     ->notEmpty('photo');
-        //
-        // $validator
-        //     ->requirePresence('dir', 'create')
-        //     ->notEmpty('dir');
+        // TODO: add validation for upload
 
         return $validator;
     }

@@ -118,7 +118,10 @@ class UsersController extends AppController
         // setting layout login
         $this->viewBuilder()->layout('login');
         $user = $this->Users->newEntity();
+        // setting type account
         $this->request->data['role'] = 'client';
+        // setting default user image
+        $this->request->data['profile']['photo'] = 'user.png';
         if ($this->request->is('post')) {
             // TODO: check if terms is agree
             $user = $this->Users->patchEntity($user, $this->request->data);

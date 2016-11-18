@@ -17,8 +17,8 @@
 ?>
 <div class="row">
     <div class="col-lg-12">
-        <a href="<?= $this->Url->build(['controller' => 'profiles', 'action' => 'edit']) ?>" class="btn btn-app">
-            <i class="fa fa-edit"></i>
+        <a href="<?= $this->Url->build(['controller' => 'profiles', 'action' => 'view']) ?>" class="btn btn-app">
+            <i class="fa fa-id-card-o"></i>
             <?= __('Profile') ?>
         </a>
         <a href="<?= $this->Url->build(['controller' => 'orders', 'action' => 'index']) ?>" class="btn btn-app">
