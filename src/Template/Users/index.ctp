@@ -97,10 +97,11 @@
                         <dd><?= $user['profile']['surname'] ?></dd>
                         <?php // profile birthday ?>
                         <dt><?= __('Birthday') ?>:</dt>
+                        <?php // TODO: show in i8n format ?>
                         <dd><?= $user['profile']['birth'] ?></dd>
                     </dl>
                     <hr>
-                    <?= $this->Html->link(__('Edit Profile'), ['contorller' => 'profiles', 'action' => 'edit'], ['class' => 'btn btn-flat btn-warning']) ?>
+                    <?= $this->Html->link(__('Edit Profile'), ['controller' => 'profiles', 'action' => 'edit'], ['class' => 'btn btn-flat btn-warning']) ?>
                 </div>
                 <div class="tab-pane" id="tab_2">
                     <?php // TODO: add change password form and action ?>
@@ -119,6 +120,7 @@
                 </h3>
             </div>
             <div class="box-body">
+                <?php // TODO: add more information about risk to delete account ?>
                 Are you sure about delete your Account?
             </div>
             <div class="box-footer">
