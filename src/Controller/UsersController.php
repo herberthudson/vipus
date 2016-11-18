@@ -1,4 +1,17 @@
 <?php
+/**
+ * VipUS: Admin for sale vips services
+ * Copyright (c) Herbert Hudson (https://github.com/herberthudson/VipUS)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Herbert Hudson (https://github.com/herberthudson/VipUS)
+ * @license       MIT License
+ */
+?>
+<?php
 namespace App\Controller;
 
 use App\Controller\AppController;
