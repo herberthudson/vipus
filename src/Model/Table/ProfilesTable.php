@@ -95,7 +95,12 @@ class ProfilesTable extends Table
             ->date('bith')
             ->allowEmpty('bith');
 
-        // TODO: add validation for upload
+        // TODO: improve upload validation
+        $validator
+            ->allowEmpty('photo');
+
+        $validator
+            ->allowEmpty('dir');
 
         return $validator;
     }
