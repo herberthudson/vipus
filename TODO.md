@@ -101,7 +101,12 @@
 -  **TODO** `(line 51)` : add social auth links (maybe v2?) ?>
 -  **TODO** `(line 58)` : create reset password ?>
 
+## tests/TestCase/View/Helper/MenuHelperTest.php
+
+-  **TODO** `(line 54)` : trigger controller route
+-  **TODO** `(line 72)` : trigger controller and action 
+
 
 * * *
 
-Last generated: Sat Nov 19 2016 15:49:38 by [grunt-todo](https://github.com/leny/grunt-todo).
+Last generated: Mon Dec 05 2016 23:37:00 by [grunt-todo](https://github.com/leny/grunt-todo).
