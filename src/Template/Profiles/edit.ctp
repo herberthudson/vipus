@@ -35,7 +35,7 @@
     <div class="col-xs-6">
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Editing Profile</h3>
+                <h3 class="box-title"><?= __('Editing Profile') ?></h3>
             </div>
             <?= $this->Form->create($profile, ['type' => 'file', 'class' => 'form-horizontal']) ?>
             <?php $this->Form->templates($form_templates['profileForm']);?>
@@ -71,6 +71,7 @@
             <div class="box-footer">
                 <?= $this->Form->submit(__('Save'), ['class' => 'btn btn-primary pull-right']) ?>
             </div>
+            <?= $this->Form->end(); ?>
         </div>
     </div>
 </div>
