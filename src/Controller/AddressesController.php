@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Core\Configure;
 /**
  * Addresses Controller
  *
@@ -51,8 +51,11 @@ class AddressesController extends AppController
      */
     public function add()
     {
+        $this->set('form_templates', Configure::read('Templates'));
         $address = $this->Addresses->newEntity();
         if ($this->request->is('post')) {
+            // adding profile id
+            $this->request->data['profile_id'] = $this->request->session()->read('Auth.User.profile.id');
             $address = $this->Addresses->patchEntity($address, $this->request->data);
             if ($this->Addresses->save($address)) {
                 $this->Flash->success(__('The address has been saved.'));
@@ -76,6 +79,7 @@ class AddressesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->set('form_templates', Configure::read('Templates'));
         $address = $this->Addresses->get($id, [
             'contain' => []
         ]);

@@ -59,6 +59,10 @@ class AddressesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->requirePresence('name', 'create')
+            ->notEmpty('name');
+
+        $validator
             ->requirePresence('street', 'create')
             ->notEmpty('street');
 
@@ -67,9 +71,9 @@ class AddressesTable extends Table
             ->requirePresence('number', 'create')
             ->notEmpty('number');
 
-        $validator
-            ->requirePresence('complement', 'create')
-            ->notEmpty('complement');
+        // $validator
+        //     ->requirePresence('complement', 'create')
+        //     ->notEmpty('complement');
 
         $validator
             ->requirePresence('district', 'create')
@@ -78,6 +82,10 @@ class AddressesTable extends Table
         $validator
             ->requirePresence('city', 'create')
             ->notEmpty('city');
+
+        $validator
+            ->requirePresence('state', 'create')
+            ->notEmpty('state');
 
         $validator
             ->requirePresence('country', 'create')

@@ -15,13 +15,14 @@
 $this->assign('title', __('Profile'));
 $this->assign('description', __('Here you can see your profile information'));
 ?>
+<?php // TODO: move to helper ?>
 <div class="row">
     <div class="col-xs-12">
         <a href="<?= $this->Url->build(['controller' => 'users', 'action' => 'index']) ?>" class="btn btn-app">
             <i class="fa fa-vcard text-info"></i>
             <?= __('View account') ?>
         </a>
-        <a href="<?= $this->Url->build(['controller' => 'Addresses', 'action' => 'view']) ?>" class="btn btn-app">
+        <a href="<?= $this->Url->build(['controller' => 'Addresses', 'action' => 'index']) ?>" class="btn btn-app">
             <i class="fa fa-map-marker text-info"></i>
             <?= __('View Addresses') ?>
         </a>
@@ -66,7 +67,7 @@ $this->assign('description', __('Here you can see your profile information'));
         <div class="box box-primary">
             <div class="box-header with-border">
                 <i class="fa fa-map-marker"></i>
-                <h3 class="box-title">Addresses</h3>
+                <h3 class="box-title"><?= __('Addresses')?></h3>
             </div>
             <div class="box-body table-responsive no-padding">
                 <?php if (!empty($profile->addresses)): ?>
@@ -76,6 +77,9 @@ $this->assign('description', __('Here you can see your profile information'));
                                 <th>
                                     <?php // TODO: add field title on table addresses ?>
                                     <?= __('ID') ?>
+                                </th>
+                                <th>
+                                    <?= __('Name') ?>
                                 </th>
                                 <th>
                                     <?= __('Street') ?>
@@ -93,6 +97,9 @@ $this->assign('description', __('Here you can see your profile information'));
                                     <?= __('City') ?>
                                 </th>
                                 <th>
+                                    <?= __('State') ?>
+                                </th>
+                                <th>
                                     <?= __('Country') ?>
                                 </th>
                                 <th>
@@ -104,15 +111,17 @@ $this->assign('description', __('Here you can see your profile information'));
                             </tr>
                             <?php foreach ($profile->addresses as $address): ?>
                                 <tr>
-                                    <td><?= h($address->id) ?></td>
+                                    <td><?= $this->Number->format($address->id) ?></td>
+                                    <td><?= h($address->name) ?></td>
                                     <td><?= h($address->street) ?></td>
-                                    <td><?= h($address->number) ?></td>
+                                    <td><?= $this->Number->format($address->number) ?></td>
                                     <td><?= h($address->complement) ?></td>
                                     <td><?= h($address->district) ?></td>
                                     <td><?= h($address->city) ?></td>
+                                    <td><?= h($address->state) ?></td>
                                     <td><?= h($address->country) ?></td>
-                                    <td><?= h($address->zipcode) ?></td>
-                                    <td><?= h($address->created) ?></td>
+                                    <td><?= $this->Number->format($address->zipcode) ?></td>
+                                    <td><?= h($address->created) ?></td> <?php // TODO: format date ?>
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
