@@ -1,5 +1,6 @@
 /vendor/*
 /config/app.php
+/config/schema-dump-default.lock
 /tmp/*
 /logs/*
 /node_modules/*
